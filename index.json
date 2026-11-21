@@ -67,6 +67,24 @@
         "chat"
       ],
       "minVicuna": "0.0.53"
+    },
+    {
+      "id": "cyberpunk2077",
+      "name": "Cyberpunk 2077",
+      "description": "Night City Kiroshi HUD dark themes inspired by Cyberpunk 2077 \u2014 deep crimson-obsidian panels, coral-red frames, and electric cyan highlights.",
+      "author": "anslwy",
+      "source": "anslwy/vicuna-theme-cyberpunk2077",
+      "kinds": [
+        "theme"
+      ],
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/icons/cyberpunk2077.svg",
+      "screenshot": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/screenshots/cyberpunk2077.jpg",
+      "tags": [
+        "dark",
+        "cyberpunk",
+        "crimson",
+        "cyan"
+      ]
     }
   ]
 }
