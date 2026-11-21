@@ -7,10 +7,15 @@
       "description": "A notes panel in the side bar: one scratchpad per workspace, saved in Vicuna and themed to match the app.",
       "author": "anslwy",
       "source": "anslwy/vicuna-plugin-scratchpad",
-      "kinds": ["panel"],
+      "kinds": [
+        "panel"
+      ],
       "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugin-scratchpad/main/scratchpad.svg",
       "screenshot": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/screenshots/scratchpad.jpg",
-      "tags": ["notes", "productivity"]
+      "tags": [
+        "notes",
+        "productivity"
+      ]
     },
     {
       "id": "lagoon",
@@ -18,10 +23,33 @@
       "description": "Deep teal dark + sandy light themes for Vicuna.",
       "author": "anslwy",
       "source": "anslwy/vicuna-theme-lagoon",
-      "kinds": ["theme"],
+      "kinds": [
+        "theme"
+      ],
       "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/icons/lagoon.svg",
       "screenshot": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/screenshots/lagoon.jpg",
-      "tags": ["dark", "light", "teal"]
+      "tags": [
+        "dark",
+        "light",
+        "teal"
+      ]
+    },
+    {
+      "id": "muse",
+      "name": "Muse Harness",
+      "description": "Adds the Muse coding agent as a Work harness over ACP. Bring your own muse CLI; Vicuna asks before running it.",
+      "author": "anslwy",
+      "source": "anslwy/vicuna-plugin-muse",
+      "kinds": [
+        "harness"
+      ],
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugin-muse/main/muse.svg",
+      "tags": [
+        "harness",
+        "agent",
+        "acp"
+      ],
+      "minVicuna": "0.0.47"
     }
   ]
 }
