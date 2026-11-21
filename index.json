@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "plugins": [
+    {
+      "id": "scratchpad",
+      "name": "Scratchpad",
+      "description": "A notes panel in the side bar: one scratchpad per workspace, saved in Vicuna and themed to match the app.",
+      "author": "anslwy",
+      "source": "anslwy/vicuna-plugin-scratchpad",
+      "kinds": ["panel"],
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugin-scratchpad/main/scratchpad.svg",
+      "screenshot": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/screenshots/scratchpad.jpg",
+      "tags": ["notes", "productivity"]
+    },
+    {
+      "id": "lagoon",
+      "name": "Lagoon Themes",
+      "description": "Deep teal dark + sandy light themes for Vicuna.",
+      "author": "anslwy",
+      "source": "anslwy/vicuna-theme-lagoon",
+      "kinds": ["theme"],
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/icons/lagoon.svg",
+      "screenshot": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/screenshots/lagoon.jpg",
+      "tags": ["dark", "light", "teal"]
+    }
+  ]
+}
