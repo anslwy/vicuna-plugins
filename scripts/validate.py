@@ -7,7 +7,34 @@ import json, re, sys, urllib.request, urllib.error, os
 ID = re.compile(r"^[a-z0-9][a-z0-9-]{0,63}$")
 REPO = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 IMG = re.compile(r"^https://(raw\.githubusercontent\.com|github\.com)/[^\s\"'<>\\]+$")
-KINDS = {"theme", "panel"}
+KINDS = {"theme", "panel", "harness"}
+# harness rules mirror src-tauri/src/plugin_harness.rs
+CMD = re.compile(r"^[A-Za-z0-9_+][A-Za-z0-9._+-]{0,63}$")
+BAD_ARG = set("`$;|&<>\"'\\")
+
+def harness_errors(h):
+    out = []
+    hid = h.get("id") if isinstance(h, dict) else None
+    if not isinstance(hid, str) or not re.match(r"^[a-z0-9-]{1,40}$", hid):
+        return [f"harness id {hid!r} must be lowercase letters, digits, dashes"]
+    lab = h.get("label")
+    if not isinstance(lab, str) or not lab.strip() or len(lab) > 40:
+        out.append(f"harness {hid}: label must be 1-40 characters")
+    acp = h.get("acp") or {}
+    cmd = acp.get("command")
+    if not isinstance(cmd, str) or not CMD.match(cmd) or ".." in cmd:
+        out.append(f"harness {hid}: acp.command must be a bare program name found on PATH (no paths)")
+    args = acp.get("args", [])
+    if not isinstance(args, list) or len(args) > 32:
+        out.append(f"harness {hid}: acp.args must be a list of at most 32 strings")
+    else:
+        for a in args:
+            if not isinstance(a, str) or len(a) > 256 or any(c in BAD_ARG or ord(c) < 32 for c in a):
+                out.append(f"harness {hid}: argument {a!r} is not allowed (no shell metacharacters)")
+    url = h.get("installUrl")
+    if url is not None and not (isinstance(url, str) and url.startswith("https://")):
+        out.append(f"harness {hid}: installUrl must be https")
+    return out
 LIMITS = {"name": 60, "description": 300, "author": 60}
 errors = []
 
@@ -86,6 +113,18 @@ def main():
         has = {"theme"} if m.get("themes") else set()
         if m.get("panels"):
             has.add("panel")
+        hs = m.get("harnesses") or []
+        if hs:
+            has.add("harness")
+            if not isinstance(hs, list) or len(hs) > 4:
+                err(f"{where}: at most 4 harnesses")
+            else:
+                ids = [h.get("id") for h in hs if isinstance(h, dict)]
+                if len(set(ids)) != len(ids):
+                    err(f"{where}: duplicate harness ids")
+                for h in hs:
+                    for e in harness_errors(h):
+                        err(f"{where}: {e}")
         if isinstance(kinds, list) and set(kinds) != has:
             err(f"{where}: kinds {kinds} but the manifest provides {sorted(has)}")
         print(f"ok  {p['id']}: {p['source']} v{m.get('version')}")
