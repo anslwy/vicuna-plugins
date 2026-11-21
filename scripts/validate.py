@@ -7,7 +7,7 @@ import json, re, sys, urllib.request, urllib.error, os
 ID = re.compile(r"^[a-z0-9][a-z0-9-]{0,63}$")
 REPO = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 IMG = re.compile(r"^https://(raw\.githubusercontent\.com|github\.com)/[^\s\"'<>\\]+$")
-KINDS = {"theme", "panel", "harness"}
+KINDS = {"theme", "panel", "harness", "bridge"}
 # harness rules mirror src-tauri/src/plugin_harness.rs
 CMD = re.compile(r"^[A-Za-z0-9_+][A-Za-z0-9._+-]{0,63}$")
 BAD_ARG = set("`$;|&<>\"'\\")
@@ -113,6 +113,11 @@ def main():
         has = {"theme"} if m.get("themes") else set()
         if m.get("panels"):
             has.add("panel")
+        if m.get("bridge"):
+            has.add("bridge")
+            br = m["bridge"]
+            if not isinstance(br, dict) or (not br.get("binaries") and not br.get("entrypoint")):
+                err(f"{where}: bridge must define binaries or entrypoint")
         hs = m.get("harnesses") or []
         if hs:
             has.add("harness")

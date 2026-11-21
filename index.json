@@ -50,6 +50,23 @@
         "acp"
       ],
       "minVicuna": "0.0.47"
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "description": "Talk to any Vicuna Work session from Discord DMs, with pairing, live progress, questions, attachments, and voice memos.",
+      "author": "anslwy",
+      "source": "anslwy/vicuna-plugin-discord",
+      "kinds": [
+        "bridge"
+      ],
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugin-discord/main/discord.svg",
+      "tags": [
+        "bridge",
+        "discord",
+        "chat"
+      ],
+      "minVicuna": "0.0.53"
     }
   ]
 }
