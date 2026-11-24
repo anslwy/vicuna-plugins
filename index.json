@@ -85,6 +85,24 @@
         "crimson",
         "cyan"
       ]
+    },
+    {
+      "id": "copilot",
+      "name": "GitHub Copilot Harness",
+      "description": "Adds the GitHub Copilot CLI as a Work harness over ACP (copilot --acp --stdio). Bring your own copilot CLI; Vicuna asks before running it.",
+      "author": "anslwy",
+      "source": "anslwy/vicuna-plugin-copilot",
+      "kinds": [
+        "harness"
+      ],
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugin-copilot/main/copilot.svg",
+      "tags": [
+        "harness",
+        "agent",
+        "acp",
+        "copilot"
+      ],
+      "minVicuna": "0.0.47"
     }
   ]
 }
