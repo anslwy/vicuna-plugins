@@ -71,7 +71,7 @@
     {
       "id": "cyberpunk2077",
       "name": "Cyberpunk 2077",
-      "description": "Night City Kiroshi HUD dark themes inspired by Cyberpunk 2077 \u2014 deep crimson-obsidian panels, coral-red frames, and electric cyan highlights.",
+      "description": "Night City Kiroshi HUD dark themes inspired by Cyberpunk 2077 — deep crimson-obsidian panels, coral-red frames, and electric cyan highlights.",
       "author": "anslwy",
       "source": "anslwy/vicuna-theme-cyberpunk2077",
       "kinds": [
@@ -95,7 +95,7 @@
       "kinds": [
         "harness"
       ],
-      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugin-copilot/main/copilot.svg",
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugins/main/icons/copilot.svg",
       "tags": [
         "harness",
         "agent",
