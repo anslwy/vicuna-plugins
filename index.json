@@ -69,6 +69,23 @@
       "minVicuna": "0.0.53"
     },
     {
+      "id": "slack",
+      "name": "Slack",
+      "description": "Talk to any Vicuna Work session from Slack DMs or private channels over Socket Mode, with pairing, live progress, interactive buttons, and file attachments.",
+      "author": "anslwy",
+      "source": "anslwy/vicuna-plugin-slack",
+      "kinds": [
+        "bridge"
+      ],
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugin-slack/main/slack.svg",
+      "tags": [
+        "bridge",
+        "slack",
+        "chat"
+      ],
+      "minVicuna": "0.0.69"
+    },
+    {
       "id": "cyberpunk2077",
       "name": "Cyberpunk 2077",
       "description": "Night City Kiroshi HUD dark themes inspired by Cyberpunk 2077 — deep crimson-obsidian panels, coral-red frames, and electric cyan highlights.",
