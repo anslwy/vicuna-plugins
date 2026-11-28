@@ -7,7 +7,7 @@ import json, re, sys, urllib.request, urllib.error, os
 ID = re.compile(r"^[a-z0-9][a-z0-9-]{0,63}$")
 REPO = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 IMG = re.compile(r"^https://(raw\.githubusercontent\.com|github\.com)/[^\s\"'<>\\]+$")
-KINDS = {"theme", "panel", "harness", "bridge"}
+KINDS = {"theme", "panel", "harness", "bridge", "mcp"}
 # harness rules mirror src-tauri/src/plugin_harness.rs
 CMD = re.compile(r"^[A-Za-z0-9_+][A-Za-z0-9._+-]{0,63}$")
 BAD_ARG = set("`$;|&<>\"'\\")
@@ -130,6 +130,11 @@ def main():
                 for h in hs:
                     for e in harness_errors(h):
                         err(f"{where}: {e}")
+        mcps = m.get("mcpServers") or []
+        if mcps:
+            has.add("mcp")
+            if not isinstance(mcps, list) or len(mcps) > 8:
+                err(f"{where}: at most 8 mcpServers")
         if isinstance(kinds, list) and set(kinds) != has:
             err(f"{where}: kinds {kinds} but the manifest provides {sorted(has)}")
         print(f"ok  {p['id']}: {p['source']} v{m.get('version')}")
