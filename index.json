@@ -120,6 +120,24 @@
         "copilot"
       ],
       "minVicuna": "0.0.79"
+    },
+    {
+      "id": "image-edit",
+      "name": "Image Studio (Gemini & OpenAI)",
+      "description": "Edit photos into new styles (such as Studio Ghibli watercolor art) and generate images using Google Gemini or OpenAI.",
+      "author": "anslwy",
+      "source": "anslwy/vicuna-plugin-image-edit",
+      "kinds": [
+        "mcp"
+      ],
+      "icon": "https://raw.githubusercontent.com/anslwy/vicuna-plugin-image-edit/main/image-edit.svg",
+      "tags": [
+        "mcp",
+        "image",
+        "gemini",
+        "openai"
+      ],
+      "minVicuna": "0.1.1"
     }
   ]
 }
